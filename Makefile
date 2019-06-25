@@ -16,7 +16,7 @@ run: $(TARGETBIN)
 clean:
 	@-rm $(TARGETBIN) src/data.inc
 
-data: src/data.inc
+datas:
 	@if [ -d objs ];																	\
 	then																				\
 		rm -rf objs;																	\
@@ -34,6 +34,6 @@ data: src/data.inc
 objs/main.o: src/main.c
 	@gcc -c -o $@ $<
 
-$(TARGETBIN): data objs/main.o
+$(TARGETBIN): datas objs/main.o
 	@gcc -o $(TARGETBIN) objs/*.o
 
