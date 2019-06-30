@@ -35,5 +35,9 @@ objs/main.o: src/main.c
 	@gcc -c -o $@ $<
 
 $(TARGETBIN): datas objs/main.o
+	@if [ ! -d bin ];																	\
+	then																				\
+		mkdir bin;																		\
+	fi
 	@gcc -o $(TARGETBIN) objs/*.o
 
